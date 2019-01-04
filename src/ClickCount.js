@@ -28,16 +28,28 @@ class ClickCounter extends Component {
   }
 
   onClickIncrementButton() {
-    this.setState({count: this.state.count + 1});
+    this.updateCount(true)
+    // this.setState({count: this.state.count + 1});
   }
 
   onClickDecrementButton() {
-    this.setState({count: this.state.count - 1});
+    this.updateCount(false)
+    // this.setState({count: this.state.count - 1});
   }
+
   shouldComponentUpdate(nextProps, nextState) {
-    return (nextProps.caption !== this.props.caption) ||
-           (nextState.count !== this.state.count);
+    // console.log('shouldComponentUpdate')
+    return (nextProps.caption !== this.props.caption) || (nextState.count !== this.state.count);
   }
+  updateCount(isIncrement) {
+    const prevValue = this.state.count
+    const newValue = isIncrement ? prevValue + 1 : prevValue - 1
+    this.setState({
+      count: newValue
+    })
+    this.props.onUpdate(newValue, prevValue)
+  }
+
 
   // onClickButton() {
   //   this.setState({
@@ -46,7 +58,7 @@ class ClickCounter extends Component {
   // }
   // ui层面
   render() {
-    console.log('enter render ' + this.props.caption);
+    console.log('我是子组件， enter render ' + this.props.caption);
     const {caption} = this.props;
     return (
       <div>
@@ -61,11 +73,13 @@ class ClickCounter extends Component {
 // PropTypes 验证，若传入的 props type 不符合将会显示错误
 ClickCounter.propTypes = {
   caption: PropTypes.string,
-  initValue: PropTypes.number
+  initValue: PropTypes.number,
+  onUpdate: PropTypes.func
 };
 // Prop 预设值，若对应 props 没传入值将会使用 default 值
 ClickCounter.defaultProps = {
-  initValue: 0
+  initValue: 0,
+  onUpdate: f => f // 默认什么都不做的函数
 };
 
 export default ClickCounter
