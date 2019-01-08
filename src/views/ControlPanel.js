@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ClickCount from './ClickCount.js';
-import { timingSafeEqual } from 'crypto';
 
 const style = {
   margin: '20px'
