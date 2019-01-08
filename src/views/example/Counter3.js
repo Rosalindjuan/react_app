@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // React从V15.5版本就不支持PorpTypes属性了，改到了prop-types里
 import PropTypes from 'prop-types'
-import * as Actions from '../Actions.js'
+import * as Actions from '../../Actions.js'
 // import {connect} from 'react-redux'
 import store from '../Store'
 
@@ -25,17 +25,22 @@ const buttonStyle = {
 // } 
 
 class CounterContainer extends Component {
-  constructor(props) {
-    super(props)
+  constructor(props, context) {
+    // super(props, context)
+    super(...arguments)
+
     this.onChange = this.onChange.bind(this)
     this.onIncrement = this.onIncrement.bind(this)
     this.onDecrement = this.onDecrement.bind(this)
     this.getOwnState = this.getOwnState.bind(this)
+
     this.state = this.getOwnState()
+
+    console.log('3', context)
   }
   getOwnState () {
     return {
-      value: store.getState()[this.props.caption]
+      value: this.context.store.getState()[this.props.caption]
     }
   }
   onIncrement() {
@@ -71,6 +76,9 @@ class CounterContainer extends Component {
 CounterContainer.propTypes = {
   caption: PropTypes.string.isRequired
 };
+CounterContainer.contextTypes = {
+  store: PropTypes.object
+}
 export default CounterContainer
 
 

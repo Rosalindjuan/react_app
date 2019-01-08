@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 
 import './index.css';
-import ControlPanel from './views/ControlPanel4';
+import ControlPanel from './views/example/ControlPanel4';
 import * as serviceWorker from './serviceWorker';
 import store from './Store'
 

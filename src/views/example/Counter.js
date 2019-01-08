@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // React从V15.5版本就不支持PorpTypes属性了，改到了prop-types里
 // import PropTypes from 'prop-types'
-import * as Actions from '../Actions.js'
+import * as Actions from '../../Actions.js'
 // import {connect} from 'react-redux'
 
 import store from '../Store'
