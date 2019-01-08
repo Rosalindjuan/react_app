@@ -60,11 +60,20 @@ To learn React, check out the [React documentation](https://reactjs.org/).
   > 3.保持状态只读，数据改变只能通过纯函数完成
 
 
-store.getState() 能够获取store上的存储的所有状态
-store.subscribe() 监听变化
-store.subscribe() 监听取消
-store.dispatch() 改变store里面的状态，派发action
+- store.getState() 能够获取store上的存储的所有状态
+- store.subscribe() 监听变化
+- store.subscribe() 监听取消
+- store.dispatch() 改变store里面的状态，派发action
 
 
-context
+### context
 一个树形组件上所有组件都能访问一个共同的对象
+
+
+### connect()
+- 接收两个参数： mapStateToProps 和 mapDispatchToProps
+- 执行结果是个函数，所以需要有括号
+
+
+### react-redux
+- dispatch,getState,.subscribe
