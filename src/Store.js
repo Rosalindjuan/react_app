@@ -1,14 +1,25 @@
-// store文件 输出全局唯一的store
-import {createStore} from 'redux'
-import reducer from './Reducer'
+import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 
-// 状态的初始值
-const initValues = {
-  'First': 0,
-  'Second': 10,
-  'Third': 20
-}
+import {reducer as todoReducer} from './todos'
+import {reducer as filterReducer} from './filter'
 
-const store = createStore(reducer, initValues)
+// import Perf from 'react-addons-perf'
 
-export default store
+
+// reducer组合
+const reducer = combineReducers({
+  todos: todoReducer,
+  filter: filterReducer
+})
+
+const middlewares = []
+// if(process.env.NODE_ENV !== 'production') {
+//   middlewares.push(require('redux-immutable-state-invariant')())
+// }
+
+const storeEnhancers = compose(
+  applyMiddleware(...middlewares),
+  (window && window.devToolsExtension) ? window.devToolsExtension() : (f) => f,
+)
+
+export default createStore(reducer, {}, storeEnhancers)

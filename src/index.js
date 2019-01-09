@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 
 import './index.css';
-import ControlPanel from './views/example/ControlPanel4';
+import TodoApp from './TodoApp';
 import * as serviceWorker from './serviceWorker';
 import store from './Store'
 
 ReactDOM.render(
   <Provider store={store}>
-    <ControlPanel/>
+    <TodoApp/>
   </Provider>, 
   document.getElementById('root')
 );

@@ -79,4 +79,15 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - dispatch,getState,.subscribe
 
 
+## 文档目录 src下
+
+├── actions                            // 包含所有action构造函数
+├── components                         // 包含所有傻瓜组件
+├── containers                         // 包含所有的容器组件
+├── reducer                            // 包含所有Redux的reducer
+├── utils                              // 公共工具方法类
+├── views                              // 学习用的一些例子
+├── index.js                           // 项目核心文件
+
+
 
