@@ -3,8 +3,11 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import {reducer as todoReducer} from './todos'
 import {reducer as filterReducer} from './filter'
 
+// 为了使用chrome插件 react Perf
 // import Perf from 'react-addons-perf'
 
+const win = window
+// win.Perf = Perf
 
 // reducer组合
 const reducer = combineReducers({
@@ -12,14 +15,17 @@ const reducer = combineReducers({
   filter: filterReducer
 })
 
+// redux-immutable-state-invariant 包 提供了redux中间件 能够让redux在每次派发动作之后做一个检查
+// 如果发现某个reducer违反了作为一个纯函数的规定擅自修改了参数state，就会给出警告
 const middlewares = []
-// if(process.env.NODE_ENV !== 'production') {
-//   middlewares.push(require('redux-immutable-state-invariant')())
-// }
+if(process.env.NODE_ENV !== 'production') {
+  // middlewares.push(require('redux-immutable-state-invariant')())
+}
 
+// storeEnhancers 能够让createStore函数产生的staore对象具有更多更强的功能
 const storeEnhancers = compose(
   applyMiddleware(...middlewares),
-  (window && window.devToolsExtension) ? window.devToolsExtension() : (f) => f,
+  (win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f,
 )
 
 export default createStore(reducer, {}, storeEnhancers)
