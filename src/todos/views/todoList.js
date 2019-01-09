@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+
 
 import {toggleTodo, removeTodo} from '../actions'
 import {FilterTypes} from '../../constants'
+import TodoItem from './todoItem'
 
 class TodoList extends Component {
   constructor(props, context) {
@@ -14,13 +15,14 @@ class TodoList extends Component {
       <ul className="todo-list">
         {
           this.props.todos.map(item => (
-            <li className="todo-item" key={item.id}> 
-              <span>{item.id}</span>
-              <input className="toggle" type="checkbox" readOnly checked = {item.completed}
-                onClick={() => this.props.onToggleTodo(item.id)} />
-              <label className="text">{item.text}</label>
-              <button className="remove" onClick={()=>this.props.onRemoveTodo(item.id)}>×</button>
-          </li>
+            <TodoItem key={item.id} item={item}/>
+          //   <li className="todo-item" key={item.id}> 
+          //     <span>{item.id}</span>
+          //     <input className="toggle" type="checkbox" readOnly checked = {item.completed}
+          //       onClick={() => this.props.onToggleTodo(item.id)} />
+          //     <label className="text">{item.text}</label>
+          //     <button className="remove" onClick={()=>this.props.onRemoveTodo(item.id)}>×</button>
+          // </li>
           ))
         }
       </ul>
@@ -50,11 +52,11 @@ const mapStateToProps = (state) => {
 }
 
 
-const mapDispatchToProps = {
-  onToggleTodo: toggleTodo,
-  onRemoveTodo: removeTodo
-}
+// const mapDispatchToProps = {
+//   onToggleTodo: toggleTodo,
+//   onRemoveTodo: removeTodo
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
+export default connect(mapStateToProps)(TodoList)
  
