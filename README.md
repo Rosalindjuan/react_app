@@ -97,3 +97,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 分类： 代理方式的高阶组件、继承方式的高阶组件
 
+继承方式的高阶组件：使用被包裹组件的方式
+
+
+“以函数为子组件”的模式可以让代码更为灵活 但是很难做性能优化：
+每次渲染都要调用函数，无法利用shouldComponentUpdate进行避免渲染浪费

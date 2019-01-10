@@ -1,3 +1,4 @@
+// 代理式的高阶组件
 import React,{Component} from 'react'
 
 function removeUserProp(WrappedComponent) {
