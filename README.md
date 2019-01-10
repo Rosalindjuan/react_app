@@ -91,3 +91,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 
+## 高阶组件
+1.重用代码
+2.修改现有组件的行为
+
+分类： 代理方式的高阶组件、继承方式的高阶组件
+
