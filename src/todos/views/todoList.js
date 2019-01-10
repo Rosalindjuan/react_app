@@ -6,6 +6,8 @@ import {toggleTodo, removeTodo} from '../actions'
 import {FilterTypes} from '../../constants'
 import TodoItem from './todoItem'
 
+import {selectVisibleTodos} from './reselect'
+
 class TodoList extends Component {
   constructor(props, context) {
     super(...arguments)
@@ -30,33 +32,26 @@ class TodoList extends Component {
   }
 }
 
-const selectvisibleTodos = (todos, filter) => {
-  switch(filter) {
-    case FilterTypes.ALL: {
-      return todos
-    }
-    case FilterTypes.COMPLETED: {
-      return todos.filter(item => item.completed)
-    }
-    case FilterTypes.UNCOMPLETED: {
-      return todos.filter(item => !item.completed)
-    }
-    default:
-      return todos
-  }
-}
+// const selectvisibleTodos = (todos, filter) => {
+//   switch(filter) {
+//     case FilterTypes.ALL: {
+//       return todos
+//     }
+//     case FilterTypes.COMPLETED: {
+//       return todos.filter(item => item.completed)
+//     }
+//     case FilterTypes.UNCOMPLETED: {
+//       return todos.filter(item => !item.completed)
+//     }
+//     default:
+//       return todos
+//   }
+// }
 const mapStateToProps = (state) => {
   return {
-    todos: selectvisibleTodos(state.todos, state.filter)
+    todos: selectVisibleTodos(state)
   };
 }
-
-
-// const mapDispatchToProps = {
-//   onToggleTodo: toggleTodo,
-//   onRemoveTodo: removeTodo
-// }
-
 
 export default connect(mapStateToProps)(TodoList)
  
