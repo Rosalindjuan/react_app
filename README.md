@@ -102,3 +102,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 “以函数为子组件”的模式可以让代码更为灵活 但是很难做性能优化：
 每次渲染都要调用函数，无法利用shouldComponentUpdate进行避免渲染浪费
+
+
+## redux-thunk中间件
+解决异步操作
