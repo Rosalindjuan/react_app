@@ -13,10 +13,10 @@ const Filters = () => {
   }
   return (
     <p className="filters">
-      {dataList}
-      {/* <Link filter={FilterTypes.ALL}>{FilterTypes.ALL}</Link>
+      {/* {dataList} */}
+      <Link filter={FilterTypes.ALL}>{FilterTypes.ALL}</Link>
       <Link filter={FilterTypes.COMPLETED}>{FilterTypes.COMPLETED}</Link>
-      <Link filter={FilterTypes.UNCOMPLETED}>{FilterTypes.UNCOMPLETED}</Link> */}
+      <Link filter={FilterTypes.UNCOMPLETED}>{FilterTypes.UNCOMPLETED}</Link>
     </p>
   )
 }

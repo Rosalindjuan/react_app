@@ -106,3 +106,12 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## redux-thunk中间件
 解决异步操作
+
+
+
+## 单元测试
+- 1.预设参数
+- 2.调用纯函数
+- 3.用expect验证纯函数的返回结果
+
+### 异步action构造函数测试
