@@ -2,9 +2,9 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 // 处理异步操作  redux-thunk中间件
 import thunkMiddleware from 'redux-thunk'
 
-import {reducer as todoReducer} from './todos'
-import {reducer as filterReducer} from './filter'
-import {reducer as weatherReducer} from './weather'
+// import {reducer as todoReducer} from './todos'
+// import {reducer as filterReducer} from './filter'
+// import {reducer as weatherReducer} from './weather'
 
 // 为了使用chrome插件 react Perf
 // import Perf from 'react-addons-perf'
@@ -14,9 +14,9 @@ const win = window
 
 // reducer组合
 const reducer = combineReducers({
-  todos: todoReducer,
-  filter: filterReducer,
-  weather: weatherReducer
+  // todos: todoReducer,
+  // filter: filterReducer,
+  // weather: weatherReducer
 })
 
 // redux-immutable-state-invariant 包 提供了redux中间件 能够让redux在每次派发动作之后做一个检查

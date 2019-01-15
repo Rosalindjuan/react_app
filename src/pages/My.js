@@ -2,6 +2,7 @@ import React from 'react'
 import { List, WhiteSpace } from 'antd-mobile';
 
 const Item = List.Item
+
 class My extends React.Component {
   render() {
     return (
@@ -13,7 +14,7 @@ class My extends React.Component {
             extra={<img src={require('../images/qrcode.svg')} alt="二维码"/>}
             onClick={() => {}}
           >
-            <div style={{'padding-top': 25, 'padding-bottom': 25}}>
+            <div style={{paddingTop: 25, paddingBottom: 25}}>
               <p>咸鱼</p>
               <p>wechatId: rosalind</p>
             </div>

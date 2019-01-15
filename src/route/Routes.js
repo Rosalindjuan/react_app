@@ -2,7 +2,6 @@ import React from 'react'
 import { Router, Route, Switch } from "react-router-dom"
 import createHistory from 'history/createBrowserHistory';
 
-// import App from '../pages/App';
 import Home from '../pages/Home'
 import Contacts from '../pages/Contacts'
 import Discover from '../pages/Discover';
