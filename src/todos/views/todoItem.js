@@ -4,9 +4,6 @@ import {connect} from 'react-redux'
 import {toggleTodo, removeTodo} from '../actions'
 
 class TodoItem extends Component {
-  constructor(props) {
-    super(props)
-  }
   shouldComponentUpdate(nextProps, nextState) {
     return (nextProps.item.completed !== this.props.item.completed) || (nextProps.item.text !== this.props.item.text)
   }

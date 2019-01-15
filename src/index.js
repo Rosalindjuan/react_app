@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
+import 'antd-mobile/dist/antd-mobile.css'
 
-import './index.css';
-import TodoApp from './TodoApp';
+import './style/reset.css'
+import './flexible'
+
+import Root from './route/Routes'
+
 import * as serviceWorker from './serviceWorker';
 import store from './Store'
 
 ReactDOM.render(
   <Provider store={store}>
-    <TodoApp/>
+    <Root/>
   </Provider>, 
   document.getElementById('root')
 );

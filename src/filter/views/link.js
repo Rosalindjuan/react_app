@@ -9,7 +9,7 @@ const Link = ({active, children, onClick}) => {
     return <b className='filter selected'>{children}</b>
   } else {
     return (
-      <a href="#" className="filter not-selected" onClick={(ev) => { ev.preventDefault(); onClick();}}>
+      <a href="###" className="filter not-selected" onClick={(ev) => { ev.preventDefault(); onClick();}}>
         {children}
       </a>
     )

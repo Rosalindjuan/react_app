@@ -7,9 +7,6 @@ import {fetchWeather} from './actions'
 
 
 class Weather extends Component {
-  constructor(){
-    super(...arguments)
-  }
   render() {
     const {status, city, weather, temp1, temp2} = this.props
     switch(status) {
